@@ -26,7 +26,7 @@ The gateway service provides a GraphQL API that combines the `books` and
 
 ## Schema
 
-![Graphical representation of the schema described above](./schema.svg)
+![Graphical representation of the schema described above](./schema.png)
 
 # Running the demo
 
