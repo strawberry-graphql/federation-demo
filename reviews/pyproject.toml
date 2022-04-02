@@ -6,7 +6,7 @@ authors = []
 
 [tool.poetry.dependencies]
 python = "^3.9"
-strawberry-graphql = "^0.73.4"
+strawberry-graphql = "^0.104.1"
 starlette = "^0.16.0"
 uvicorn = "^0.13.4"
 taskipy = "^1.8.1"
