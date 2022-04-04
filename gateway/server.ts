@@ -21,10 +21,10 @@ const server = new ApolloServer({
 });
 
 setTimeout(() => {
-server
-  .listen({ port: 7000 })
-  .then(({ url }) => {
-    console.info(`🚀 Gateway available at ${url}`);
-  })
-  .catch((err) => console.error("❌ Unable to start gateway", err));
+  server
+    .listen({ port: 7000 })
+    .then(({ url }) => {
+      console.info(`🚀 Gateway available at ${url}`);
+    })
+    .catch((err) => console.error("❌ Unable to start gateway", err));
 }, 5000);
