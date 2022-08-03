@@ -1,24 +1,14 @@
-FROM python:alpine
+FROM python:3.10
 
+# install PDM
+RUN pip install -U pip setuptools wheel
+RUN pip install pdm
 
-ENV PYTHONDONTWRITEBYTECODE 1
-ENV PYTHONUNBUFFERED 1
+# copy files
+COPY pyproject.toml pdm.lock /project/
+COPY . /project
 
-# Install dev dependencies
-RUN apk update \
-    && apk add curl postgresql-dev gcc python3-dev musl-dev openssl-dev libffi-dev
+WORKDIR /project
+RUN pdm install --prod --no-lock --no-editable
 
-RUN pip install -U pip \
-    && curl -sSL https://raw.githubusercontent.com/python-poetry/poetry/master/get-poetry.py | python -
-ENV PATH="${PATH}:/root/.poetry/bin"
-
-WORKDIR /usr/src/app
-
-COPY pyproject.toml poetry.lock /usr/src/app/
-
-RUN poetry config virtualenvs.create false \
-    && poetry install --no-interaction --no-ansi
-
-COPY . .
-
-CMD poetry run task server
+CMD ["pdm", "run", "server"]

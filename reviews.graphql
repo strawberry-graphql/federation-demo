@@ -1,0 +1,30 @@
+schema @link(url: "https://specs.apollo.dev/federation/v2.0", import: ["@external", "@inaccessible", "@key", "@override", "@shareable"]) {
+  query: Query
+}
+
+type Book @key(fields: "id") {
+  id: ID! @external
+  reviewsCount: Int!
+  reviews: [Review!]!
+  hiddenField: String! @inaccessible
+  aFieldThatWillBeOverridden: String! @shareable @override(from: "Books")
+}
+
+type Query {
+  _service: _Service!
+  _entities(representations: [_Any!]!): [_Entity]!
+  Service: String
+}
+
+type Review {
+  id: Int!
+  body: String!
+}
+
+scalar _Any
+
+union _Entity = Book
+
+type _Service {
+  sdl: String!
+}

@@ -1,19 +1,37 @@
-[tool.poetry]
-name = "books"
-version = "0.1.0"
-description = ""
-authors = []
+[tool.pdm]
+[tool.pdm.dev-dependencies]
+dev = [
+  "mypy<1.0,>=0.971",
+  "flake8<6.0.0,>=5.0.3",
+  "black>=22.6.0",
+]
 
-[tool.poetry.dependencies]
-python = "^3.9"
-strawberry-graphql = "^0.104.1"
-starlette = "^0.16.0"
-uvicorn = "^0.13.4"
-taskipy = "^1.8.1"
+[tool.pdm.build]
+includes = []
 
-[tool.taskipy.tasks]
-server = "uvicorn app:app --host 0.0.0.0 --port 8000 --reload"
+[tool.pdm.scripts]
+server = "uvicorn app:app --host 0.0.0.0 --port 4000 --reload"
 
 [build-system]
-requires = ["poetry-core>=1.0.0"]
-build-backend = "poetry.core.masonry.api"
+build-backend = "pdm.pep517.api"
+requires = ["pdm-pep517>=1.0.0"]
+
+[tool.mypy]
+plugins = [
+  "strawberry.ext.mypy_plugin",
+]
+
+[project]
+authors = [
+  {name = "Patrick Arminio", email = "patrick.arminio@gmail.com"},
+]
+dependencies = ["strawberry-graphql==0.124.0.dev.1659525319", "starlette<1.0.0,>=0.16.0", "uvicorn<1.0.0,>=0.13.4", "taskipy<2.0.0,>=1.8.1"]
+description = ""
+license = {text = "MIT"}
+name = "books"
+requires-python = ">=3.9,<4.0"
+version = "0.1.0"
+
+[project.urls]
+
+[project.optional-dependencies]

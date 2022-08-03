@@ -10,10 +10,13 @@ from strawberry.asgi import GraphQL
 class Book:
     id: strawberry.ID
     title: str
+    a_field_that_will_be_overridden: str = strawberry.federation.field(
+        default="this is coming from the books service", shareable=True
+    )
 
 
 def get_all_books() -> List[Book]:
-    return [Book(id=1, title="The Dark Tower")]
+    return [Book(id=strawberry.ID("1"), title="The Dark Tower")]
 
 
 @strawberry.type
