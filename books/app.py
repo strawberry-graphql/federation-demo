@@ -26,4 +26,4 @@ class Query:
 
 schema = strawberry.federation.Schema(query=Query)
 
-app = Starlette(debug=True, routes=[Route("/graphql", GraphQL(schema))])
+app = Starlette(debug=True, routes=[Route("/", GraphQL(schema))])

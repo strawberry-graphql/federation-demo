@@ -21,12 +21,12 @@ def get_reviews(root: "Book") -> List[Review]:
 
 @strawberry.federation.type(keys=["id"])
 class Book:
-    id: strawberry.ID = strawberry.federation.field(external=True)
+    id: strawberry.ID
     reviews_count: int
     reviews: List[Review] = strawberry.field(resolver=get_reviews)
     hidden_field: str = strawberry.federation.field(inaccessible=True)
     a_field_that_will_be_overridden: str = strawberry.federation.field(
-        override="Books",
+        override="books",
         shareable=True,
         default="this is coming from the reviews service",
     )
@@ -38,9 +38,9 @@ class Book:
 
 @strawberry.type
 class Query:
-    _service: Optional[str]
+    hi: str = strawberry.field(resolver=lambda: "Hello World")
 
 
 schema = strawberry.federation.Schema(query=Query, types=[Book])
 
-app = Starlette(debug=True, routes=[Route("/graphql", GraphQL(schema))])
+app = Starlette(debug=True, routes=[Route("/", GraphQL(schema))])

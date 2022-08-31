@@ -226,7 +226,7 @@ dependencies = [
 
 [metadata]
 lock_version = "4.0"
-content_hash = "sha256:374773e4499d6c958d70438dae633b6166edce6a00f39d54ccbbb9a0ea029ec0"
+content_hash = "sha256:5e0c8a2620c41d01e10cc12ddb6b2db56656b3bd9564625189d96c2fa2ff2729"
 
 [metadata.files]
 "anyio 3.6.1" = [
