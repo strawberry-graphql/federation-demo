@@ -25,7 +25,12 @@ plugins = [
 authors = [
   {name = "Patrick Arminio", email = "patrick.arminio@gmail.com"},
 ]
-dependencies = ["strawberry-graphql==0.124.0.dev.1659525319", "starlette<1.0.0,>=0.16.0", "uvicorn<1.0.0,>=0.13.4", "taskipy<2.0.0,>=1.8.1"]
+dependencies = [
+    "strawberry-graphql>=0.131.1",
+    "starlette<1.0.0,>=0.16.0",
+    "uvicorn<1.0.0,>=0.13.4",
+    "taskipy<2.0.0,>=1.8.1",
+]
 description = ""
 license = {text = "MIT"}
 name = "books"

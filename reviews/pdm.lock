@@ -9,12 +9,6 @@ dependencies = [
 ]
 
 [[package]]
-name = "backports.cached-property"
-version = "1.0.2"
-requires_python = ">=3.6.0"
-summary = "cached_property() - computed once per instance, cached as attribute"
-
-[[package]]
 name = "black"
 version = "22.6.0"
 requires_python = ">=3.6.2"
@@ -177,11 +171,10 @@ dependencies = [
 
 [[package]]
 name = "strawberry-graphql"
-version = "0.124.0.dev1659525319"
+version = "0.131.1"
 requires_python = ">=3.7,<4.0"
 summary = "A library for creating GraphQL APIs"
 dependencies = [
-    "backports.cached-property<2.0.0,>=1.0.1",
     "click<9.0,>=7.0",
     "graphql-core<3.3.0,>=3.2.0",
     "pygments<3.0,>=2.3",
@@ -226,16 +219,12 @@ dependencies = [
 
 [metadata]
 lock_version = "4.0"
-content_hash = "sha256:5e0c8a2620c41d01e10cc12ddb6b2db56656b3bd9564625189d96c2fa2ff2729"
+content_hash = "sha256:1f369e20aa3f94b4fd6180aaf4a2acddce568bda9d281d49cc6ba984fe979599"
 
 [metadata.files]
 "anyio 3.6.1" = [
     {url = "https://files.pythonhosted.org/packages/67/c4/fd50bbb2fb72532a4b778562e28ba581da15067cfb2537dbd3a2e64689c1/anyio-3.6.1.tar.gz", hash = "sha256:413adf95f93886e442aea925f3ee43baa5a765a64a0f52c6081894f9992fdd0b"},
     {url = "https://files.pythonhosted.org/packages/c3/22/4cba7e1b4f45ffbefd2ca817a6800ba1c671c26f288d7705f20289872012/anyio-3.6.1-py3-none-any.whl", hash = "sha256:cb29b9c70620506a9a8f87a309591713446953302d7d995344d0d7c6c0c9a7be"},
-]
-"backports.cached-property 1.0.2" = [
-    {url = "https://files.pythonhosted.org/packages/08/83/4cea5c665d2af765c02f7d8e8560b5918405c1d7d11ccfc60c4919c1cfd0/backports.cached-property-1.0.2.tar.gz", hash = "sha256:9306f9eed6ec55fd156ace6bc1094e2c86fae5fb2bf07b6a9c00745c656e75dd"},
-    {url = "https://files.pythonhosted.org/packages/eb/ae/69e52acdcf381b108b36d989ea58656de4a9ab8863aba6176d80d01041df/backports.cached_property-1.0.2-py3-none-any.whl", hash = "sha256:baeb28e1cd619a3c9ab8941431fe34e8490861fb998c6c4590693d50171db0cc"},
 ]
 "black 22.6.0" = [
     {url = "https://files.pythonhosted.org/packages/07/eb/a757135497a3be31ab8c00ef239070c7277ad11b618104950a756bcab3c1/black-22.6.0-cp38-cp38-macosx_10_9_universal2.whl", hash = "sha256:a218d7e5856f91d20f04e931b6f16d15356db1c846ee55f01bac297a705ca24f"},
@@ -396,9 +385,9 @@ content_hash = "sha256:5e0c8a2620c41d01e10cc12ddb6b2db56656b3bd9564625189d96c2fa
     {url = "https://files.pythonhosted.org/packages/51/37/8ac52116984d6a0d8502ec2c7e4a4a78f862b76410cdb1a4bcb384c91cb3/starlette-0.20.4-py3-none-any.whl", hash = "sha256:c0414d5a56297d37f3db96a84034d61ce29889b9eaccf65eb98a0b39441fcaa3"},
     {url = "https://files.pythonhosted.org/packages/b7/9b/dc9fa4c05a8aceb7abbf057b1279f0007ce8ab42c9b8f31a9c71981955bc/starlette-0.20.4.tar.gz", hash = "sha256:42fcf3122f998fefce3e2c5ad7e5edbf0f02cf685d646a83a08d404726af5084"},
 ]
-"strawberry-graphql 0.124.0.dev1659525319" = [
-    {url = "https://files.pythonhosted.org/packages/dc/8d/45d70fbe1ac877e4029fd0af726648e2fbf6fe4515a5bf67a3d8e4a5d2d9/strawberry_graphql-0.124.0.dev1659525319-py3-none-any.whl", hash = "sha256:db3e663bc55e94c21fbd1d0c65f84f62e8f7f438e0248864566a7095449ddb0b"},
-    {url = "https://files.pythonhosted.org/packages/f6/26/1bd120f742353f85c06a6086ac1814c602940fbefdc0efde2b92218b3952/strawberry-graphql-0.124.0.dev1659525319.tar.gz", hash = "sha256:006396a7b755650e77aa7121f138b4ad3fefaa73abba43db0d9de646a56d877b"},
+"strawberry-graphql 0.131.1" = [
+    {url = "https://files.pythonhosted.org/packages/14/42/3d97e710cb484224414d9bd8b618e9e81bec1a6dcadc8ead98d94f89365c/strawberry-graphql-0.131.1.tar.gz", hash = "sha256:5020c13987b051d67f83b5ac15fea428289a34dccd1079ce01faf8511664d606"},
+    {url = "https://files.pythonhosted.org/packages/88/96/67c399a2cd099f9a93083a0230879453c2eff10337bf215f7092c7a8c805/strawberry_graphql-0.131.1-py3-none-any.whl", hash = "sha256:76a6472e8822d80059ac9530a8b3284b5649c36c8ec48a19cbbc20fa66d0c3a7"},
 ]
 "taskipy 1.10.2" = [
     {url = "https://files.pythonhosted.org/packages/41/f5/50153a35631042f4734aea494d2e659f8359cce0ff52234624c1ff506d58/taskipy-1.10.2.tar.gz", hash = "sha256:eae4feb74909da3ad0ca0275802e1c2f56048612529bd763feb922d284d8a253"},
