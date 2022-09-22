@@ -1,13 +1,17 @@
+ifneq (,$(wildcard ./.env))
+    include .env
+    export
+endif
+
 publish:
-	cd books && pdm run strawberry export-schema app > ../books.graphql
-	cd reviews && pdm run strawberry export-schema app > ../reviews.graphql
+	# todo: maybe run these via docker-compose
+	cd books && pdm export-schema > ../books.graphql
+	cd reviews && pdm export-schema > ../reviews.graphql
 
-	APOLLO_KEY=service:strawberry-federation:fsxTmw4aZJ4WEVhI1fdnnw \
-		rover subgraph publish strawberry-federation@current \
+	rover subgraph publish $(APOLLO_GRAPH_REF) \
 		--name reviews --schema ./reviews.graphql \
-		--routing-url http://reviews:4000/graphql
+		--routing-url http://reviews:4000
 
-	APOLLO_KEY=service:strawberry-federation:fsxTmw4aZJ4WEVhI1fdnnw \
-		rover subgraph publish strawberry-federation@current \
+	rover subgraph publish $(APOLLO_GRAPH_REF) \
 		--name books --schema ./books.graphql \
-		--routing-url http://books:4000/graphql
+		--routing-url http://books:4000

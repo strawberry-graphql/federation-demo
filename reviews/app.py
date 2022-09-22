@@ -1,4 +1,4 @@
-from typing import List, Optional
+from typing import List
 
 import strawberry
 from starlette.applications import Starlette
@@ -41,6 +41,8 @@ class Query:
     hi: str = strawberry.field(resolver=lambda: "Hello World")
 
 
-schema = strawberry.federation.Schema(query=Query, types=[Book])
+schema = strawberry.federation.Schema(
+    query=Query, types=[Book], enable_federation_2=True
+)
 
 app = Starlette(debug=True, routes=[Route("/", GraphQL(schema))])

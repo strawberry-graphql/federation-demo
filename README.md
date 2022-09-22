@@ -33,6 +33,25 @@ The gateway service provides a GraphQL API that combines the `books` and
 For convenience we provided a docker-compose file that can be used to run the
 whole demo.
 
+Before being able to run the demo you need the following environment variables,
+in both `.env` and `gateway/.env`:
+
+```txt
+APOLLO_KEY=...
+APOLLO_GRAPH_REF=...
+```
+
+You can get these values by creating a new service in Apollo Studio. You can
+follow the instructions here:
+https://www.apollographql.com/docs/studio/getting-started/
+
+Once you have the environment variables set, you can upload the schema to Apollo
+Studio by running:
+
+```bash
+make publish
+```
+
 Assuming you have docker and docker compose installed you can run the following
 command to start the demo:
 
@@ -41,4 +60,4 @@ docker-compose up
 ```
 
 This should start all the services and you should be able to access the GraphQL
-API at `http://localhost:7000/graphql`.
+API at `http://localhost:4000/graphql`.

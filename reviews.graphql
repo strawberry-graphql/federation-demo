@@ -1,17 +1,13 @@
-schema
-  @link(
-    url: "https://specs.apollo.dev/federation/v2.0"
-    import: ["@external", "@inaccessible", "@key", "@override", "@shareable"]
-  ) {
+schema @link(url: "https://specs.apollo.dev/federation/v2.0", import: ["@inaccessible", "@key", "@override", "@shareable"]) {
   query: Query
 }
 
 type Book @key(fields: "id") {
-  id: ID! @external
+  id: ID!
   reviewsCount: Int!
   reviews: [Review!]!
   hiddenField: String! @inaccessible
-  aFieldThatWillBeOverridden: String! @shareable @override(from: "Books")
+  aFieldThatWillBeOverridden: String! @shareable @override(from: "books")
 }
 
 type Query {

@@ -24,6 +24,6 @@ class Query:
     all_books: List[Book] = strawberry.field(resolver=get_all_books)
 
 
-schema = strawberry.federation.Schema(query=Query)
+schema = strawberry.federation.Schema(query=Query, enable_federation_2=True)
 
 app = Starlette(debug=True, routes=[Route("/", GraphQL(schema))])

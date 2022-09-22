@@ -11,6 +11,7 @@ includes = []
 
 [tool.pdm.scripts]
 server = "uvicorn app:app --port 4001 --reload"
+export-schema = "strawberry export-schema app"
 
 [build-system]
 build-backend = "pdm.pep517.api"
