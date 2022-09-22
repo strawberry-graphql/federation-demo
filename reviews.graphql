@@ -1,4 +1,8 @@
-schema @link(url: "https://specs.apollo.dev/federation/v2.0", import: ["@inaccessible", "@key", "@override", "@shareable"]) {
+schema
+  @link(
+    url: "https://specs.apollo.dev/federation/v2.0"
+    import: ["@inaccessible", "@key", "@override", "@shareable"]
+  ) {
   query: Query
 }
 
