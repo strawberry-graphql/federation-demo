@@ -1,25 +1,24 @@
-FROM python:alpine
+FROM python:3.10-slim as builder
 
+RUN apt update && apt install -y gcc python3-dev gcc
+RUN pip install -U pip setuptools wheel pdm
 
-ENV PYTHONDONTWRITEBYTECODE 1
-ENV PYTHONUNBUFFERED 1
-ENV POETRY_VERSION=1.2.1
-ENV POETRY_HOME="/opt/poetry"
-ENV PATH=${POETRY_HOME}/bin:$PATH
+WORKDIR /app
+COPY pyproject.toml pdm.lock /app/
 
-# Install dev dependencies
-RUN apk update \
-    && apk add curl postgresql-dev gcc python3-dev musl-dev openssl-dev libffi-dev
+RUN pdm export -o requirements.txt
 
-RUN curl -sSL https://install.python-poetry.org | python -
+FROM python:3.10-slim
 
-WORKDIR /usr/src/app
+WORKDIR /app
 
-COPY pyproject.toml poetry.lock /usr/src/app/
+RUN apt update && apt install -y gcc python3-dev gcc
 
-RUN poetry config virtualenvs.create false \
-    && poetry install --no-interaction --no-ansi
+COPY --from=builder /app/requirements.txt /app/
 
-COPY . .
+RUN pip install -r requirements.txt
 
-CMD poetry run task server
+COPY . /app
+WORKDIR /app
+
+CMD ["uvicorn", "app:app", "--port", "4000", "--host", "0.0.0.0", "--reload"]

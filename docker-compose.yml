@@ -6,7 +6,7 @@ services:
     hostname: gateway
     depends_on: [books, reviews]
     ports:
-      - "7000:7000"
+      - "4000:4000"
 
   books:
     build:

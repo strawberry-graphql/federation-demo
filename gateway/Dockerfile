@@ -1,11 +1,9 @@
-FROM node:14
+FROM node:16
 
 WORKDIR /app
 
 COPY package* /app/
-
 RUN npm ci
-
 COPY . /app/
 
-CMD npm run dev
+CMD node index.js
